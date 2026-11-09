@@ -26,6 +26,8 @@ def handle_events():
               event.key in (SDLK_0, SDLK_1, SDLK_2)):
             if event.key == SDLK_0:
                 boy.can_fire = False
+            elif event.key == SDLK_1:
+                boy.can_fire = True
             show_item_select = False
         else:
             boy.handle_event(event)
