@@ -1,5 +1,5 @@
 from pico2d import *
-from sdl2 import SDLK_i
+from sdl2 import SDLK_0, SDLK_1, SDLK_2, SDLK_i
 import game_framework
 import game_world
 from boy import Boy
@@ -22,6 +22,9 @@ def handle_events():
             return
         elif event.type == SDL_KEYDOWN and event.key == SDLK_i:
             show_item_select = not show_item_select
+        elif (event.type == SDL_KEYDOWN and show_item_select and
+              event.key in (SDLK_0, SDLK_1, SDLK_2)):
+            show_item_select = False
         else:
             boy.handle_event(event)
 
