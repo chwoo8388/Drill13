@@ -4,13 +4,16 @@ import game_world
 
 
 class Ball:
-    image = None
+    images = {}
 
-    def __init__(self, x, y, velocity):
-        if Ball.image is None:
-            Ball.image = load_image('ball21x21.png')
+    def __init__(self, x, y, velocity, image_file='ball21x21.png',
+                 size=21):
+        if image_file not in Ball.images:
+            Ball.images[image_file] = load_image(image_file)
+        self.image = Ball.images[image_file]
         self.x, self.y = x, y
         self.velocity = velocity
+        self.size = size
 
     def update(self):
         self.x += self.velocity
@@ -18,4 +21,4 @@ class Ball:
             game_world.remove_object(self)
 
     def draw(self):
-        self.image.draw(self.x, self.y)
+        self.image.draw(self.x, self.y, self.size, self.size)

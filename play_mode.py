@@ -28,6 +28,12 @@ def handle_events():
                 boy.can_fire = False
             elif event.key == SDLK_1:
                 boy.can_fire = True
+                boy.ball_image = 'ball21x21.png'
+                boy.ball_size = 21
+            elif event.key == SDLK_2:
+                boy.can_fire = True
+                boy.ball_image = 'ball41x41.png'
+                boy.ball_size = 41
             show_item_select = False
         else:
             boy.handle_event(event)
