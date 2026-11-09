@@ -18,6 +18,7 @@ class Boy:
         self.dir = 0
         self.face_dir = 1
         self.pressed_keys = set()
+        self.can_fire = True
 
         self.machine = Machine(
             model=self,
@@ -59,7 +60,8 @@ class Boy:
 
         if (event.type == SDL_KEYDOWN and
                 event.key == SDLK_SPACE and
-                self.state in ('IDLE', 'RUN')):
+                self.state in ('IDLE', 'RUN') and
+                self.can_fire):
             self.fire_ball()
             return
 

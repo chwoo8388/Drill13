@@ -24,6 +24,8 @@ def handle_events():
             show_item_select = not show_item_select
         elif (event.type == SDL_KEYDOWN and show_item_select and
               event.key in (SDLK_0, SDLK_1, SDLK_2)):
+            if event.key == SDLK_0:
+                boy.can_fire = False
             show_item_select = False
         else:
             boy.handle_event(event)
